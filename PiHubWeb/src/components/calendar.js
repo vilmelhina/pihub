@@ -1,5 +1,6 @@
 import React from "react";
+import {Widget} from "./widget";
 
 export function Calendar(props) {
-    return <div className={props.className}>Calendar</div>
+    return <Widget title="Kalender" id={props.id}></Widget>
 }

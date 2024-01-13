@@ -1,0 +1,7 @@
+.widget {
+    background: #EDE5DA;
+    padding:20px;
+    border-radius: 15px;
+    color:#6D675E;
+    box-shadow: inset rgba(0,0,0,0.15) 0 2px 17px;
+}

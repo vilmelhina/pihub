@@ -6,13 +6,24 @@
   display: grid;
   grid-gap: 50px;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+          "inside weather trains"
+          "calendar calendar trains";
   padding: 40px;
 }
 
-.widget {
-  background: #EDE5DA;
-  padding:20px;
-  border-radius: 15px;
-  color:#6D675E;
-  box-shadow: inset rgba(0,0,0,0.15) 0 2px 17px;
+#inside {
+  grid-area: inside;
+}
+
+#weather {
+  grid-area: weather;
+}
+
+#trains {
+  grid-area: trains;
+}
+
+#calendar {
+  grid-area: calendar;
 }

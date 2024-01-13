@@ -8,10 +8,10 @@ function App() {
   return (
     <div className="App">
       <div id="container">
-          <InsideClimate className="widget"/>
-          <Weather className="widget"/>
-          <Calendar className="widget"/>
-          <Trains className="widget"/>
+          <InsideClimate id="inside"/>
+          <Weather id="weather"/>
+          <Trains id="trains"/>
+          <Calendar id="calendar"/>
       </div>
     </div>
   );
