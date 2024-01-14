@@ -1,7 +1,6 @@
 const url = "http://192.168.1.200:5000"
 
 function httpGET(endpoint) {
-    console.log("Fetching " + endpoint + "....")
     return fetch(url + endpoint, {
         method: 'GET',
         headers: {
