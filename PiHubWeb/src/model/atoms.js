@@ -1,16 +1,28 @@
-import {atom} from 'recoil';
+import {atom, selector} from 'recoil';
+import {getHumidity, getPressure, getTemperature} from "../integration/climateapi";
 
 
 // Inside climate
 
-export const insideTemperatureState = atom({
+export const insideTemperatureState = selector({
   key: 'insideTemperatureState',
-  default: 20,
+  get: async () => {
+    return await getTemperature();
+  },
 })
 
-export const insideHumidityState = atom({
+export const insideHumidityState = selector({
   key: 'insideHumidityState',
-  default: 40,
+  get: async () => {
+    return await getHumidity();
+  },
+})
+
+export const insidePressureState = selector({
+  key: 'insidePressureState',
+  get: async () => {
+    return await getPressure();
+  },
 })
 
 // Outside weather
