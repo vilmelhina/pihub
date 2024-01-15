@@ -12,7 +12,7 @@ export function Trains() {
 
     return <table className="departures-list">
         <tbody>
-            {departures.map(departure => <tr key={departure.ref} className="departure">
+            {departures.map(departure => <tr key={departure.direction + departure.time + departure.line} className="departure">
                 <td className="departure-line">{departure.line}</td>
                 <td className="departure-direction">{departure.direction}</td>
                 <td className="departure-time">

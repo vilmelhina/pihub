@@ -24,7 +24,6 @@ function extractDepartures(response) {
         rtDate: departure.rtDate,
         time: departure.time,
         rtTime: departure.rtTime,
-        ref: departure.JourneyDetailRef.ref,
         line: departure.ProductAtStop.line
     }})
 }
