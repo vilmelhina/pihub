@@ -1,0 +1,16 @@
+table.departures-list {
+    text-align: left;
+}
+
+table.departures-list td {
+    padding: 5px 5px;
+}
+
+span.corrected {
+    text-decoration: line-through;
+    opacity: 0.65;
+}
+
+.departure-time span {
+    margin: 0 4px;
+}

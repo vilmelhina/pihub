@@ -1,6 +1,7 @@
-import {atom, selector} from 'recoil';
+import {selector} from 'recoil';
 import {getHumidity, getPressure, getTemperature} from "../integration/climateapi";
 import {getOutsideHumidity, getOutsideTemperature} from "../integration/weatherapi";
+import {getDepartures} from "../integration/trainsapi";
 
 
 // Inside climate
@@ -40,4 +41,13 @@ export const outsideHumidityState = selector({
   get: async () => {
     return await getOutsideHumidity();
   },
+})
+
+// Trains
+
+export const departuresState = selector({
+  key: 'departuresState',
+  get: async () => {
+    return await getDepartures()
+  }
 })
