@@ -1,22 +1,17 @@
+import {httpGET} from "./apiUtil";
+
 const url = "http://192.168.1.200:5000"
 
-function httpGET(endpoint) {
-    return fetch(url + endpoint, {
-        method: 'GET',
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        },
-    }).then(response => response.json());
-}
+const headers = {"Content-type": "application/json; charset=UTF-8"}
 
 export function getTemperature() {
-    return httpGET("/temperature")
+    return httpGET(url + "/temperature", headers)
 }
 
 export function getPressure() {
-    return httpGET("/pressure")
+    return httpGET(url + "/pressure", headers)
 }
 
 export function getHumidity() {
-    return httpGET("/humidity")
+    return httpGET(url + "/humidity", headers)
 }

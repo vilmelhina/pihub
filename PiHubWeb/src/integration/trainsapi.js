@@ -1,14 +1,9 @@
 import {apiKey} from "./trainsapicredentials";
+import {httpGET} from "./apiUtil";
 
 const format = "json" // format of response
 const stopId = 740021684 // id of station
 const maxDepartures = 7 // number of departures to get
-
-function httpGET(url) {
-    return fetch(url, {
-        method: 'GET',
-    }).then(response => response.json());
-}
 
 export function getDepartures() {
     const url = `https://api.resrobot.se/v2.1/departureBoard?id=${stopId}&format=${format}`
