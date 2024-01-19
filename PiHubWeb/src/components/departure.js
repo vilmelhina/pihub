@@ -1,21 +1,23 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "../styles/departure.css";
 
 export function Departure(props) {
+    const [timeNow, setTimeNow] = useState(new Date());
     const departure = props.departure;
     const hasNewTime = departure.rtTime && departure.rtTime !== departure.time
     const time = departure.rtTime || departure.time
     const date = departure.rtDate || departure.date
-    const timeLeft =  (Date.parse(date + " " + time) - Date.now()) / (1000 * 60)
+    const timeLeft = () => (Date.parse(date + " " + time) - timeNow) / (1000 * 60)
+    const displayTimeLeft = () => (timeLeft() >= 1 ? Math.floor(timeLeft()) + " min" : "nu")
 
-    function displayTimeLeft() {
-        if(timeLeft >= 1)
-            return Math.floor(timeLeft) + " min"
-        else
-            return "nu"
-    }
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTimeNow(new Date());
+        }, 100);
+        return () => clearInterval(interval);
+    }, []);
 
-    return timeLeft > -0.7 && <div className="departure">
+    return timeLeft() >= 0 && <div className="departure">
         <span className="departure-line">{departure.line}</span>
         <span className="departure-direction">{departure.direction}</span>
         <span className="departure-time">
