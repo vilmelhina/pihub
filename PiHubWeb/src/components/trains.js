@@ -2,26 +2,13 @@ import React from "react";
 import {useRecoilValue} from "recoil";
 import {departuresState} from "../model/atoms";
 import "../styles/trains.css";
+import {Departure} from "./departure";
 
 export function Trains() {
     const departures = useRecoilValue(departuresState)
 
-    function hasNewTime(departure) {
-        return departure.rtTime && departure.rtTime !== departure.time
-    }
-
-    return <table className="departures-list">
-        <tbody>
-            {departures.map(departure => <tr key={departure.direction + departure.time + departure.line} className="departure">
-                <td className="departure-line">{departure.line}</td>
-                <td className="departure-direction">{departure.direction}</td>
-                <td className="departure-time">
-                    <span className={"original-time" + (hasNewTime(departure) ? " corrected" : "")}>
-                        {departure.time.substring(0,5)}
-                    </span>
-                    {hasNewTime(departure) && <span className="new-time">{departure.rtTime.substring(0,5)}</span> }
-                </td>
-            </tr>)}
-        </tbody>
-    </table>
+    return <div className="departures-list">
+            {departures.slice(0,7).map(dep => <Departure departure={dep}
+                                                               key={dep.direction + dep.time + dep.line}/>)}
+    </div>
 }

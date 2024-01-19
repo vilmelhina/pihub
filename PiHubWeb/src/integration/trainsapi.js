@@ -3,11 +3,11 @@ import {httpGET} from "./apiUtil";
 
 const format = "json" // format of response
 const stopId = 740021684 // id of station
-const maxDepartures = 7 // number of departures to get
+const duration = 60 // time window to get departures in
 
 export function getDepartures() {
     const url = `https://api.resrobot.se/v2.1/departureBoard?id=${stopId}&format=${format}`
-        + `&accessId=${apiKey}&maxJourneys=${maxDepartures}`
+        + `&accessId=${apiKey}&duration=${duration}`
     return httpGET(url).then(extractDepartures)
 }
 
