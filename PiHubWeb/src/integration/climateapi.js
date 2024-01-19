@@ -1,17 +1,21 @@
 import {httpGET} from "./apiUtil";
 
-const url = "http://192.168.1.200:5000"
-
 const headers = {"Content-type": "application/json; charset=UTF-8"}
 
+function getIfInProduction(url, headers) {
+    if(process.env.NODE_ENV === 'production')
+        return httpGET(url, headers)
+    return 404
+}
+
 export function getTemperature() {
-    return httpGET(url + "/temperature", headers)
+    return getIfInProduction("/temperature", headers)
 }
 
 export function getPressure() {
-    return httpGET(url + "/pressure", headers)
+    return getIfInProduction("/pressure", headers)
 }
 
 export function getHumidity() {
-    return httpGET(url + "/humidity", headers)
+    return getIfInProduction("/humidity", headers)
 }

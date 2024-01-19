@@ -9,5 +9,6 @@ export function InsideClimate() {
     return <span>
             <p>Temperatur: {Math.round(insideTemperature)}</p>
             <p>Luftfuktighet: {Math.round(humidity)}</p>
+        {process.env.NODE_ENV !== 'production' && <p>(mock values)</p>}
     </span>
 }
