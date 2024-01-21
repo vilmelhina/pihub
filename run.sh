@@ -1,4 +1,2 @@
-cd ~/pihub/backend
-./startserver.sh &
-cd ~/pihub/PiHubWeb
-serve -s build
+cd ~/pihub-run/ClimateAPI
+./startserver.sh
